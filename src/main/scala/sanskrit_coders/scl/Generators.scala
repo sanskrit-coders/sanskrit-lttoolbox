@@ -33,8 +33,9 @@ class SubantaGenerator(override val binFilePath: String) extends LtToolboxComman
       s"<level:1>"
   }
 
-  def getSubanta(root: String, prakAra: String, linga: String, vibhakti: Int, vachana: Int): String = {
-    queryBin(getQuery(root, prakAra, linga, vibhakti, vachana))
+  def getSubanta(root: String, prakAra: String, linga: String, vibhakti: Int, vachana: Int): Seq[String] = {
+    val result = queryBin(getQuery(root, prakAra, linga, vibhakti, vachana))
+    result.split("/")
   }
 }
 

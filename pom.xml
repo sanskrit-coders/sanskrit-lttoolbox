@@ -11,7 +11,7 @@
     <description>
         Language translation toolbox (lt toolbox) based utilities for Sanskrit.
     </description>
-    <name>Indic transliteration scala and java library</name>
+    <name>Language translation toolbox (lt toolbox) based utilities for Sanskrit</name>
     <issueManagement>
         <url>https://github.com/sanskrit-coders/sanskrit-lttoolbox/issues</url>
         <system>GitHub Issues</system>
