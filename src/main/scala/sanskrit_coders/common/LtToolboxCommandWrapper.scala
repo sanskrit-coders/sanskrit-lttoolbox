@@ -7,6 +7,7 @@ class LtToolboxCommandWrapper(val binFilePath: String) {
   val log = LoggerFactory.getLogger(getClass.getName)
   def queryBin(query: String): String = {
     val command = s"echo ${query}" #| s"/usr/bin/lt-proc -ct $binFilePath"
+//     #| "/home/vvasuki/scl/build/converters/ri_skt" #| "/home/vvasuki/scl/build/converters/iscii2utf8.py 1 "
     log debug command.toString
     val stdout = new StringBuilder
     val stderr = new StringBuilder
