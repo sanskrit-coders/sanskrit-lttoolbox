@@ -11,20 +11,20 @@
 # SCL tools
 ## Intro
 - Smt Ambaa KulkarNi has led the creation of several such FST based tools. These are very useful for word generation and analysis.
-- They're hosted on <scl.samsaadhanii.in> and mirrors.
+- They're hosted on <http://scl.samsaadhanii.in> and mirrors.
 
 ## Resources available as of July 2017:
 - Only the lttoolbox compatible bin files are provided without any documentation (*by request*, not on any public site).
-- This is usually a part of the scl website code, which is antiquated and mostly useless for further development (while still serving as a useful reference for how the core lttoolbox bin files are to be invoked) as it:
-  - relies on CGI technology.
-  - is written in perl.
-  - has a poor build system.
-- These lttoolbox compatible bin files don't work with the Java libraries as of July 2017 - see [thread](https://sourceforge.net/p/apertium/mailman/apertium-stuff/?viewmonth=201706).
+    - This is usually a part of the scl website code (under the GNU GENERAL PUBLIC LICENSE), which is antiquated and mostly useless for further development (while still serving as a useful reference for how the core lttoolbox bin files are to be invoked) as it:
+      - relies on CGI technology.
+      - is written in perl.
+      - has a poor build system.
+    - These lttoolbox compatible bin files don't work with the Java libraries as of July 2017 - see [thread](https://sourceforge.net/p/apertium/mailman/apertium-stuff/?viewmonth=201706).
 - Smt Ambaa does not provide the dix files (including to this author).
-- So there is an outsider cannot consider using them :
-  - to grok how the bin files are to be invoked
-  - to understand the underlying lttoolbox technology by example.
-  - to develop the FST-s further.
+    - So there is an outsider cannot consider using them :
+      - to grok how the bin files are to be invoked
+      - to understand the underlying lttoolbox technology by example.
+      - to develop the FST-s further.
 
 ## Invocation tips
 The below are sourced mostly from communication with smt ambaa and from experiments.
@@ -43,3 +43,6 @@ The below are sourced mostly from communication with smt ambaa and from experime
 ### tinanta generator
 Regarding the level parameter:
  - In the case of verb forms, I have only level 1. The Nijantas, though derived are assigned the same level.
+
+# Downstream projects
+- [html-2-rest](https://github.com/sanskrit-coders/html-2-rest) provides a REST API front for some of these tools. That repo also has the scl bin files.
