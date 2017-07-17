@@ -22,7 +22,7 @@
       - to grok how the bin files are to be invoked,
       - to understand the underlying lttoolbox technology by example.
       - to develop them further
-- These lttoolbox compatible bin don't work with the Java libraries as of July 2017 - see [thread](https://sourceforge.net/p/apertium/mailman/apertium-stuff/?viewmonth=201706).
+- These lttoolbox compatible bin files don't work with the Java libraries as of July 2017 - see [thread](https://sourceforge.net/p/apertium/mailman/apertium-stuff/?viewmonth=201706).
 
 ## Invocation tips
 The below are sourced mostly from communication with smt ambaa and from experiments.
