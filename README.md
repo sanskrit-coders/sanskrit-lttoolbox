@@ -21,10 +21,7 @@
       - has a poor build system.
     - These lttoolbox compatible bin files don't work with the Java libraries as of July 2017 - see [thread](https://sourceforge.net/p/apertium/mailman/apertium-stuff/?viewmonth=201706).
 - Smt Ambaa does not provide the dix files (including to this author).
-    - So there is an outsider cannot consider using them :
-      - to grok how the bin files are to be invoked
-      - to understand the underlying lttoolbox technology by example.
-      - to develop the FST-s further.
+    - So there is an outsider cannot consider using them to grok how the bin files are to be invoked, to understand the underlying lttoolbox technology by example or to develop the FST-s further.
 
 ## Invocation tips
 The below are sourced mostly from communication with smt ambaa and from experiments.
