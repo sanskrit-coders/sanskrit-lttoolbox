@@ -42,4 +42,4 @@ Regarding the level parameter:
  - In the case of verb forms, I have only level 1. The Nijantas, though derived are assigned the same level.
 
 # Downstream projects
-- [html-2-rest](https://github.com/sanskrit-coders/html-2-rest) provides a REST API front for some of these tools. That repo also has the scl bin files.
+- [html-2-rest](https://github.com/vedavaapi/html-2-rest) provides a REST API front for some of these tools. That repo also has the scl bin files.
