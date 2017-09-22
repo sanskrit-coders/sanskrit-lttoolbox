@@ -1,5 +1,6 @@
 package sanskrit_coders.scl
 
+import akka.actor.{Actor, ActorLogging}
 import dbSchema.grammar.{Qualification, SclAnalysis}
 import org.slf4j.{Logger, LoggerFactory}
 import sanskrit_coders.common.LtToolboxCommandWrapper
@@ -30,6 +31,13 @@ class Analyser(override val binFilePath: String) extends LtToolboxCommandWrapper
       }
       new SclAnalysis(qualifications = qualifications)
     })
+  }
+}
+
+class AnalyserActor(analyser: Analyser) extends Actor with ActorLogging {
+
+  def receive: Receive = {
+    case word: String => { sender() ! analyser.analyze(word = word)}
   }
 }
 
