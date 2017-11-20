@@ -8,6 +8,17 @@
 ## Goals
 - Write scala/ java wrappers for invoking FST-s in lt-toolbox bin files.
 
+# Usage
+
+## Downstream projects
+- [html-2-rest](https://github.com/vedavaapi/html-2-rest) provides a REST API front for some of these tools. That repo also has the scl bin files.
+
+# Contribution
+## Deployment
+- Use sbt command `release` to publish to maven repos.
+- You should be able to use it roughly immediately; and after many hours you should see at maven repo listings [here](https://mvnrepository.com/artifact/com.github.sanskrit-coders). 
+
+
 # SCL tools
 ## Intro
 - Smt Ambaa KulkarNi has led the creation of several such FST based tools. These are very useful for word generation and analysis.
@@ -40,6 +51,3 @@ The below are sourced mostly from communication with smt ambaa and from experime
 ### tinanta generator
 Regarding the level parameter:
  - In the case of verb forms, I have only level 1. The Nijantas, though derived are assigned the same level.
-
-# Downstream projects
-- [html-2-rest](https://github.com/vedavaapi/html-2-rest) provides a REST API front for some of these tools. That repo also has the scl bin files.
