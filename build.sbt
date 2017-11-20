@@ -1,5 +1,4 @@
 name := "sanskrit-lttoolbox"
-version := "0.6"
 
 scalaVersion := "2.12.3"
 
