@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory
 import scala.sys.process._
 
 class LtToolboxCommandWrapper(val binFilePath: String) {
-  private val log = LoggerFactory.getLogger(getClass.getName)
+  private val log = LoggerFactory.getLogger("LtToolboxCommandWrapper")
   protected val vachanaCodeMap: Map[Int, String] = Map[Int, String](
     1 -> "eka",
     2 -> "xwi",

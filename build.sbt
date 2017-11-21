@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   ,"org.json4s" % "json4s-ast_2.12" % "3.5.2"
   ,"org.json4s" % "json4s-native_2.12" % "3.5.2"
   ,"org.apache.commons" % "commons-csv" % "1.4"
-  ,"com.typesafe.akka" % "akka-actor_2.12.0-M5" % "2.4.8"
+  ,"com.typesafe.akka" % "akka-actor_2.12" % "2.5.6"
+  ,"com.typesafe.akka" % "akka-testkit_2.12" % "2.5.6" % "test"
   ,"com.github.sanskrit-coders" % "indic-transliteration_2.12" % "1.8"
   ,"com.github.sanskrit-coders" % "db-interface_2.12" % "2.9"
 )

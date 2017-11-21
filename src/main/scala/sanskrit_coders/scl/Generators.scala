@@ -1,7 +1,7 @@
 package sanskrit_coders.scl
 
 import akka.actor.{Actor, ActorLogging}
-import dbSchema.grammar.{Subanta, Tinanta}
+import dbSchema.grammar.{Subanta, TinVivaxaa, Tinanta}
 import org.slf4j.{Logger, LoggerFactory}
 import sanskrit_coders.common.LtToolboxCommandWrapper
 
@@ -65,7 +65,7 @@ class TinantaGenerator(override val binFilePath: String) extends LtToolboxComman
 }
 
 
-class GeneratorActor(subantaGenerator: SubantaGenerator, tinantaGenerator: TinantaGenerator) extends Actor with ActorLogging {
+class GeneratorActor(subantaGenerator: SubantaGenerator, tinantaGenerator: TinantaGenerator, analyser: Analyser) extends Actor with ActorLogging {
 
   def receive: Receive = {
     case subanta: Subanta => {
@@ -81,6 +81,13 @@ class GeneratorActor(subantaGenerator: SubantaGenerator, tinantaGenerator: Tinan
       val padas = tinantaGenerator.getTinanta(root = tinanta.dhaatu.get.sclCode.get, kimpadI = tinanta.vivaxaa.get.kimpadI.get, dhAtu = tinanta.dhaatu.get.root.get,
         gaNa = tinanta.dhaatu.get.gaNas.get.head,
         prayoga = tinanta.vivaxaa.get.prayoga.get, lakAra = tinanta.vivaxaa.get.lakaara.get, puruSha = tinanta.vivaxaa.get.puruSha.get, vachana = tinanta.vivaxaa.get.vachana.get)
+      sender() ! padas
+    }
+    case (vivaxaa: TinVivaxaa, alternateFormWx: String) => {
+      val analysis = analyser.analyze(wxWord = alternateFormWx).filter(analysis => analysis.tinanta.isDefined).head
+      val padas = tinantaGenerator.getTinanta(root = analysis.sclAnalysis.get.qualifications("root"), kimpadI = vivaxaa.kimpadI.get, dhAtu = analysis.sclAnalysis.get.qualifications("XAwuH"),
+        gaNa = analysis.sclAnalysis.get.qualifications("gaNaH"),
+        prayoga = vivaxaa.prayoga.get, lakAra = vivaxaa.lakaara.get, puruSha = vivaxaa.puruSha.get, vachana = vivaxaa.vachana.get)
       sender() ! padas
     }
   }
