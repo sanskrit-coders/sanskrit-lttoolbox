@@ -14,8 +14,8 @@ class Analyser(override val binFilePath: String) extends LtToolboxCommandWrapper
   // cur1<prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:bahu><paxI:parasmEpaxI><XAwuH:curaz><gaNaH:curAxiH><level:1>/
   // <kqw_vrb_rt:cur1><kqw_prawyayaH:Sawq_lat><XAwuH:curaz><gaNaH:curAxiH>corayaw<vargaH:nA><lifgam:napuM><viBakwiH:1><vacanam:bahu><level:2>/
   // <kqw_vrb_rt:cur1><kqw_prawyayaH:Sawq_lat><XAwuH:curaz><gaNaH:curAxiH>corayaw<vargaH:nA><lifgam:napuM><viBakwiH:2><vacanam:bahu><level:2>/cur1<sanAxi_prawyayaH:Nic><prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:bahu><paxI:parasmEpaxI><XAwuH:curaz><gaNaH:curAxiH><level:1>
-  def analyze(word: String): Seq[Analysis] = {
-    val result = queryBin(query = word)
+  def analyze(wxWord: String): Seq[Analysis] = {
+    val result = queryBin(query = wxWord)
     result.split("/").map(result => {
       val tokens = result.replaceAllLiterally("><", ",").replaceAll("[<>]",",").split(",").filterNot(_.isEmpty)
       var qualifications = mutable.HashMap[String, String]()
@@ -38,14 +38,6 @@ class Analyser(override val binFilePath: String) extends LtToolboxCommandWrapper
 class AnalyserActor(analyser: Analyser) extends Actor with ActorLogging {
 
   def receive: Receive = {
-    case word: String => { sender() ! analyser.analyze(word = word)}
-  }
-}
-
-object analyzerTest {
-  val log: Logger = LoggerFactory.getLogger(getClass.getName)
-  def main(args: Array[String]): Unit = {
-    val analyser = new Analyser(binFilePath = "/home/vvasuki/scl/build/morph_bin/all_morf.bin")
-    log info analyser.analyze(word = "corayanwi").mkString("\n")
+    case wxWord: String => { sender() ! analyser.analyze(wxWord = wxWord)}
   }
 }

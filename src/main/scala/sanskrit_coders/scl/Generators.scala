@@ -19,11 +19,6 @@ class SubantaGenerator(override val binFilePath: String) extends LtToolboxComman
     "napum" -> "napuM",
     "swrI" -> "swrI"
   )
-  private val vachanaCodeMap = Map[Int, String](
-    1 -> "eka",
-    2 -> "xwi",
-    3 -> "bahu"
-  )
 
   // Example query: jFAna<vargaH:nA><lifgam:napuM><viBakwiH:1><vacanam:bahu><level:1>
   def getQuery(root: String, prakAra: String, linga: String, vibhakti: Int, vachana: Int): String = {
@@ -38,16 +33,6 @@ class SubantaGenerator(override val binFilePath: String) extends LtToolboxComman
   def getSubanta(root: String, prakAra: String, linga: String, vibhakti: Int, vachana: Int): Seq[String] = {
     val result = queryBin(getQuery(root, prakAra, linga, vibhakti, vachana))
     result.split("/")
-  }
-}
-
-object subantaGeneratorTest {
-  private val log = LoggerFactory.getLogger(getClass.getName)
-
-  def main(args: Array[String]): Unit = {
-    val subantaGenerator = new SubantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/sup_gen.bin")
-    var subanta = subantaGenerator.getSubanta("jFAna", "sAXAraNa", "napum", 2, 3)
-    log info s"subanta: $subanta"
   }
 }
 
@@ -73,27 +58,11 @@ class TinantaGenerator(override val binFilePath: String) extends LtToolboxComman
   //  cur1<prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:bahu><paxI:parasmEpaxI><XAwuH:curaz><gaNaH:curAxiH><level:1>
   def getTinanta(root: String, kimpadI: String, dhAtu: String, gaNa: String, prayoga: String,
                  lakAra: String, puruSha: String, vachana: Int): Seq[String] = {
-    val result = queryBin(getQuery(root = root, kimpadI = kimpadI, dhAtu = dhAtu, gaNa = gaNa, prayoga = prayoga, lakAra = lakAra, puruSha = puruSha, vachana = vachana.toString))
+    val result = queryBin(getQuery(root = root, kimpadI = kimpadI, dhAtu = dhAtu, gaNa = gaNa, prayoga = prayoga, lakAra = lakAra, puruSha = puruSha, vachana = vachanaCodeMap(vachana)))
     result.split("/")
   }
 
 }
-
-
-//aMSa1<prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:eka><paxI:AwmanepaxI><XAwuH:aMSa><gaNaH:curAxiH><level:1>
-//cur1<prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:bahu><paxI:parasmEpaxI><XAwuH:curaz><gaNaH:curAxiH><level:1>
-object tinantaGeneratorTest {
-  private val log = LoggerFactory.getLogger(getClass.getName)
-
-  def main(args: Array[String]): Unit = {
-    val tinantaGenerator = new TinantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/wif_gen.bin")
-    var tinanta = tinantaGenerator.getTinanta(root = "cur1", kimpadI = "parasmEpaxI", dhAtu = "curaz",
-      gaNa = "curAxiH",
-      prayoga = "karwari", lakAra = "lat", puruSha = "pra", vachana = 3)
-    log info s"tinanta: $tinanta"
-  }
-}
-
 
 
 class GeneratorActor(subantaGenerator: SubantaGenerator, tinantaGenerator: TinantaGenerator) extends Actor with ActorLogging {
