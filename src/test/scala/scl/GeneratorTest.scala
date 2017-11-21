@@ -36,7 +36,7 @@ class GeneratorTest extends FlatSpec {
 
 }
 
-class GeneratorActorTest() extends TestKit(ActorSystem("MySpec", ConfigFactory.parseString("{akka.test.single-expect-default = 30000}"))) with ImplicitSender
+class GeneratorActorTest() extends TestKit(ActorSystem("MySpec", ConfigFactory.parseString("{akka.test.single-expect-default = 300000}"))) with ImplicitSender
   with WordSpecLike with Matchers with BeforeAndAfterAll {
   private val tinantaGenerator = new TinantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/wif_gen.bin")
   private val subantaGenerator = new SubantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/sup_gen.bin")
