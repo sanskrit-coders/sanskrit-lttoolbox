@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sanskrit-coders/sanskrit-lt-toolbox.svg?branch=master)](https://travis-ci.org/sanskrit-coders/sanskrit-lt-toolbox)
 
 # Intro
 ## LTToolbox context
