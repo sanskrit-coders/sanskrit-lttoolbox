@@ -8,7 +8,8 @@ import sanskrit_coders.scl.Analyser
 
 class AnalyserTest  extends FlatSpec {
   private val log = LoggerFactory.getLogger(this.getClass)
-  val analyser = new Analyser(binFilePath = "/home/vvasuki/scl/build/morph_bin/all_morf.bin")
+  log.info(getClass.getResource("/scl_bin").getPath)
+  val analyser = new Analyser(binFilePath = getClass.getResource("/scl_bin/all_morf.bin").getPath)
 
   "Analyser" should "should analyze corayanwi correctly." in {
     // cur1<prayogaH:karwari><lakAraH:lat><puruRaH:pra><vacanam:bahu><paxI:parasmEpaxI><XAwuH:curaz><gaNaH:curAxiH><level:1>/

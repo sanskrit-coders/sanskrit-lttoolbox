@@ -17,8 +17,8 @@ import scala.concurrent.ExecutionContextExecutor
 
 class GeneratorTest extends FlatSpec {
   private val log = LoggerFactory.getLogger(this.getClass)
-  private val tinantaGenerator = new TinantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/wif_gen.bin")
-  private val subantaGenerator = new SubantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/sup_gen.bin")
+  private val tinantaGenerator = new TinantaGenerator(binFilePath = getClass.getResource("/scl_bin/wif_gen.bin").getPath)
+  private val subantaGenerator = new SubantaGenerator(binFilePath = getClass.getResource("/scl_bin/sup_gen.bin").getPath)
 
   "TinantaGenerator" should "should generate curaz forms correctly based on Tinanta." in {
     var tinanta = tinantaGenerator.getTinanta(root = "cur1", kimpadI = "parasmEpaxI", dhAtu = "curaz",
@@ -38,9 +38,9 @@ class GeneratorTest extends FlatSpec {
 
 class GeneratorActorTest() extends TestKit(ActorSystem("MySpec", ConfigFactory.parseString("{akka.test.single-expect-default = 300000}"))) with ImplicitSender
   with WordSpecLike with Matchers with BeforeAndAfterAll {
-  private val tinantaGenerator = new TinantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/wif_gen.bin")
-  private val subantaGenerator = new SubantaGenerator(binFilePath = "/home/vvasuki/scl/build/morph_bin/sup_gen.bin")
-  private val analyser = new Analyser(binFilePath = "/home/vvasuki/scl/build/morph_bin/all_morf.bin")
+  private val tinantaGenerator = new TinantaGenerator(binFilePath = getClass.getResource("/scl_bin/wif_gen.bin").getPath)
+  private val subantaGenerator = new SubantaGenerator(binFilePath = getClass.getResource("/scl_bin/sup_gen.bin").getPath)
+  val analyser = new Analyser(binFilePath = getClass.getResource("/scl_bin/all_morf.bin").getPath)
 
   override def afterAll {
     TestKit.shutdownActorSystem(system)
