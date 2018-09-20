@@ -1,25 +1,29 @@
 name := "sanskrit-lttoolbox"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.6"
 
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaVersion = "2.5.4"
+val akkaVersion = "2.5.16"
+val scalactestVersion = "3.0.5"
+val logbackVersion = "1.2.3"
+val json4sVersion = "3.6.1"
+
 libraryDependencies ++= Seq(
-  "ch.qos.logback" % "logback-classic" % "0.9.29"
-  ,"ch.qos.logback" % "logback-core" % "0.9.29"
-  ,"org.json4s" % "json4s-ast_2.12" % "3.5.2"
-  ,"org.json4s" % "json4s-native_2.12" % "3.5.2"
-  ,"org.apache.commons" % "commons-csv" % "1.4"
+  "ch.qos.logback" % "logback-classic" % logbackVersion
+  ,"ch.qos.logback" % "logback-core" % logbackVersion
+  ,"org.json4s" % "json4s-ast_2.12" % json4sVersion
+  ,"org.json4s" % "json4s-native_2.12" % json4sVersion
+  ,"org.apache.commons" % "commons-csv" % "1.5"
   ,"com.typesafe.akka" % "akka-actor_2.12" % akkaVersion
   ,"com.typesafe.akka" % "akka-testkit_2.12" % akkaVersion % "test"
-  ,"com.github.sanskrit-coders" % "indic-transliteration_2.12" % "1.8"
-  ,"com.github.sanskrit-coders" % "db-interface_2.12" % "2.9"
+  ,"com.github.sanskrit-coders" % "indic-transliteration_2.12" % "1.30"
+  ,"com.github.sanskrit-coders" % "db-interface_2.12" % "3.1"
 )
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.4"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % scalactestVersion
+libraryDependencies += "org.scalatest" %% "scalatest" % scalactestVersion % "test"
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
