@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
   ,"com.typesafe.akka" % "akka-actor_2.12" % akkaVersion
   ,"com.typesafe.akka" % "akka-testkit_2.12" % akkaVersion % "test"
   ,"com.github.sanskrit-coders" % "indic-transliteration_2.12" % "1.30"
-  ,"com.github.sanskrit-coders" % "db-interface_2.12" % "3.1"
+  ,"com.github.sanskrit-coders" % "db-interface_2.12" % "3.2"
 )
 
 libraryDependencies += "org.scalactic" %% "scalactic" % scalactestVersion
