@@ -16,6 +16,7 @@
 
 # Contribution
 ## Deployment
+- PS: Install the lttoolbox package beforehand on the computer you will release from - else tests will fail.
 - Use sbt command `release` to publish to maven repos.
 - You should be able to use it roughly immediately; and after many hours you should see at maven repo listings [here](https://mvnrepository.com/artifact/com.github.sanskrit-coders). 
 
